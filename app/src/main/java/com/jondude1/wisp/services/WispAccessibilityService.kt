@@ -166,15 +166,16 @@ class WispAccessibilityService : AccessibilityService() {
         return gesture(p, 350)
     }
 
-    fun pressKey(key: String): Boolean = performGlobalAction(
-        when (key) {
+    fun pressKey(key: String): Boolean {
+        val action = when (key) {
             "back" -> GLOBAL_ACTION_BACK
             "home" -> GLOBAL_ACTION_HOME
             "recents" -> GLOBAL_ACTION_RECENTS
             "notifications" -> GLOBAL_ACTION_NOTIFICATIONS
             else -> return false
         }
-    )
+        return performGlobalAction(action)
+    }
 
     private fun findFirst(root: AccessibilityNodeInfo, test: (AccessibilityNodeInfo) -> Boolean): AccessibilityNodeInfo? {
         if (test(root)) return root
