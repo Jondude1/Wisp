@@ -1,0 +1,12 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/app/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+# NOTE: keystore/wisp.jks is committed on purpose. Wisp is a sideloaded app and the
+# updater only works if every build is signed with the same permanent key.

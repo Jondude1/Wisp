@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wisp</string>
+    <string name="a11y_label">Wisp screen control</string>
+    <string name="a11y_description">Lets Wisp read what is on screen and tap, type and scroll for you when you ask it to do something in an app. Wisp only acts while a task you started is running.</string>
+</resources>
