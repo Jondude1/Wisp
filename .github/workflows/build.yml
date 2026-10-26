@@ -24,7 +24,11 @@ jobs:
       - name: Build release APK
         run: |
           chmod +x ./gradlew
-          ./gradlew assembleRelease --stacktrace
+          set -o pipefail
+          ./gradlew assembleRelease --console=plain 2>&1 | tee build.log || {
+            grep -E '^e: |error:|What went wrong' -A2 build.log | head -60 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
+            exit 1
+          }
 
       - name: Name the APK
         run: |
